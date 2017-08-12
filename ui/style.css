@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
   background-image:url("/ui/madi.png");
+  background-size:cover;
 }
 
 body {
