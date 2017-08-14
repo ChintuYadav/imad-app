@@ -38,8 +38,15 @@ app.get('/ui/wallpaper.png', function(req, res){
   res.sendFile(path.join(__dirname, 'ui', 'wallpaper.png'));
 });
 
-app.get('/article-one', function(req, res){
-     res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+app.post('/shorten', function(req, res){
+   var url=req.params.value;
+   pool.query('Insert into "shorten" (long_url) VALUES ($1)', [url], function (err, result){
+        if (err) {
+            res.status(500).send(err.toString());
+        } else {
+            res.send('User successfully created: ' + username);
+        }
+   });
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
