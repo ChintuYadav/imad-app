@@ -13,7 +13,7 @@ shorten.onclick=function(){
               }
           }
         };
-        var url = document.getElementById('url_field').value;
+        var url = document.getElementById('url-field').value;
         console.log(url);
         request.open('POST', '/shorten', true);
         request.setRequestHeader('Content-Type', 'application/json');
