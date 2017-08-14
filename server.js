@@ -43,7 +43,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 });
 
 app.get('/createurl', function (req, res) {
-    var url = req.body.url;
+    var url = req.params.url;
     res.send(url);
 
 });
