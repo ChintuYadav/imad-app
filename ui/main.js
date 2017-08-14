@@ -6,12 +6,12 @@ shorten.onclick=function(){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            request.open('get', 'http://chintuyadavsr336.imad.hasura-app.io/shorten', true);
-            request.setReqestHeader('Content-Type', 'application/json');
-            request.send();
+        // Typical action to be performed when the document is ready:
+            alert("Error in response");
         }
     };
     console.log(url);
-    
-    //
+    request.open('get', 'http://chintuyadavsr336.imad.hasura-app.io/shorten', true);
+    //request.setReqestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({url:url}));
 };
