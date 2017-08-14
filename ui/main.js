@@ -6,5 +6,5 @@ shorten.onclick=function(){
   console.log(url);
   request.open('get', 'http://chintuyadavsr336.imad.hasura-app.io/shorten', true);
   //request.setReqestHeader('Content-Type', 'application/json');
-  //request.send(JSON.stringify({url:url}));
+  request.send(JSON.stringify({url:url}));
 };
