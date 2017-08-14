@@ -7,7 +7,7 @@ shorten.onclick=function(){
           if (request.readyState === XMLHttpRequest.DONE) {
               // Take some action
               if (request.status === 200) {
-                  register.value = 'Registered!';
+                  shorten.value = 'Registered!';
               } else {
                   register.value = 'Register';
               }
@@ -18,5 +18,5 @@ shorten.onclick=function(){
         request.open('POST', '/shorten', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({url: url}));  
-        register.value = 'Registering...';
+        shorten.value = 'Registering...';
 };
