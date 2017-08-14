@@ -6,7 +6,7 @@ shorten.onclick=function(){
     request.onreadystatechange = function() {
         if(request.readyState===XMLHTTPRequest.DONE){
             if(request.status===200){
-                
+                console.log("Sent successsfullt--->XML HTTPRequest");
             }
         }
     };
@@ -15,5 +15,5 @@ shorten.onclick=function(){
     console.log(url);
     request.open('POST', 'http://chintuyadavsr336.imad.hasura-app.io/shorten', true);
     //request.setReqestHeader('Content-Type', 'application/json');
-    request.send(JSON.strinfigy({url:url}));
+    request.send(JSON.stringify({url:url}));
 };
