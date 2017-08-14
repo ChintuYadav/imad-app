@@ -15,7 +15,7 @@ shorten.onclick=function(){
         };
         var url = document.getElementById('url-field').value;
         console.log(url);
-        request.open('get', '/article-one', true);
+        request.open('get', 'http://chintuyadavsr336.imad.hasura-app.io/article-one', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({url: url}));  
         shorten.value = 'Registering...';
