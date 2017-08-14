@@ -7,10 +7,8 @@ shorten.onclick=function(){
           if (request.readyState === XMLHttpRequest.DONE) {
               // Take some action
               if (request.status === 200) {
-                  alert('User created successfully');
                   register.value = 'Registered!';
               } else {
-                  alert('Could not register the user');
                   register.value = 'Register';
               }
           }
