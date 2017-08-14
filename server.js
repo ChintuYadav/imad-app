@@ -42,7 +42,7 @@ app.get('/ui/wallpaper.png', function(req, res){
   res.sendFile(path.join(__dirname, 'ui', 'wallpaper.png'));
 });
 
-app.get('/shorten', function (req, res) {
+app.get('/create', function (req, res) {
     var url = req.body.url;
     res.send(url);
 
