@@ -1,4 +1,4 @@
-console.log('Loaded!');
+//console.log('Loaded!');
 var shorten=document.getElementById('shorten_btn');
 shorten.onclick=function(){
   var request=new XMLHttpRequest();
