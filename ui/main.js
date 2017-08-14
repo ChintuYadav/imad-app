@@ -11,6 +11,7 @@ shorten.onclick=function(){
   };
   var input=document.getElementById('url-field');
   var url=input.value;
-  request.open('POST', 'http://chintuyadavsr336.imad.hasura-app.io/');
+  console.log(url);
+  //request.open('POST', 'http://chintuyadavsr336.imad.hasura-app.io/');
   request.send(null);
 };
