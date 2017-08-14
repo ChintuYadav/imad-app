@@ -60,6 +60,7 @@ body {
   margin-top: 5px;
 }
 .img-medium{
+    position:absolute;
     margin-top:-10px;
 }
 #link {
