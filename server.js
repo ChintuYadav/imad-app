@@ -47,7 +47,7 @@ app.get('/article-one', function (req, res) {
 
 app.post('/shorten', function (req, res) {
    var url = req.body.url;
-   res.send('This is url');
+   res.sendFile(path.join(__dirname,'ui', 'madi.png'));
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
