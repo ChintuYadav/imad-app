@@ -4,7 +4,7 @@ shorten.onclick=function(){
   var input=document.getElementById('url-field');
   var url=input.value;
   console.log(url);
-  request.open('post', 'http://chintuyadavsr336.imad.hasura-app.io/shorten', true);
+  request.open('get', 'http://chintuyadavsr336.imad.hasura-app.io/shorten', true);
   request.setReqestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify({url:url}));
 };
