@@ -40,14 +40,15 @@ app.get('/ui/wallpaper.png', function(req, res){
 
 app.get('/shorten', function(req, res){
    var url=req.params.value;
-   pool.query('INSERT into "shorten" (long_url) VALUES ($1)', [url], function (err, result){
+   res.send("The url is "+url);
+   /*pool.query('INSERT into "shorten" (long_url) VALUES ($1)', [url], function (err, result){
         if (err) {
             res.send("Error in handling");
             res.status(500).send(err.toString());
         } else {
             res.send('User successfully created: ' + username);
         }
-   });
+   });*/
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
