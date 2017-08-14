@@ -38,7 +38,7 @@ app.get('/ui/wallpaper.png', function(req, res){
   res.sendFile(path.join(__dirname, 'ui', 'wallpaper.png'));
 });
 
-app.post('/shorten', function(req, res){
+app.get('/shorten', function(req, res){
    var url=req.params.value;
    pool.query('Insert into "shorten" (long_url) VALUES ($1)', [url], function (err, result){
         if (err) {
