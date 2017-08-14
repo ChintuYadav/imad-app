@@ -42,7 +42,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 });
 
 app.post('/shorten', function (req, res) {
-   var url = req.body.username;
+   var url = req.body.url;
    res.send('This is url');
 });
 // Do not change port, otherwise your app won't run on IMAD servers
