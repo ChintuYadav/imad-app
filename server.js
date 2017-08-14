@@ -41,7 +41,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 app.get('/shorten', function(req, res){
    var url=req.params.value;
    res.send("The url is "+url);
-   /*pool.query('INSERT into "shorten" (long_url) VALUES ($1)', [url], function (err, result){
+   /*pool.query('INSERT into "Shorten" (long_url) VALUES ($1)', [url], function (err, result){
         if (err) {
             res.send("Error in handling");
             res.status(500).send(err.toString());
