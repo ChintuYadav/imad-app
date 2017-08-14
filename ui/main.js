@@ -1,1 +1,16 @@
 console.log('Loaded!');
+var shorten=document.getElementById('shorten_btn');
+shorten.onclick=function(){
+  var request=new XMLHttpRequest();
+  request.onreadystatechane=function(){
+    if(request.readystate===XMLHttprequest.DONE){
+        if(request.status===200){
+            
+        }
+    }  
+  };
+  var input=document.getElementById('url');
+  var url=input.value;
+  request.open('POST', 'http://chintuyadavsr336.imad.hasura-app.io/');
+  request.send(null);
+};
