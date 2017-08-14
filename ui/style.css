@@ -59,8 +59,8 @@ body {
 .inner h1 {
   margin-top: 5px;
 }
-.img-medium:hover{
-    box-shadow:0 0 10px black;
+.img-medium{
+    margin-top:-10px;
 }
 #link {
   display: none;
