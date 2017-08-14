@@ -1,8 +1,8 @@
 html,
 body {
-    background-image:url("/ui/wallpaper.png");
+  background-image:url("/ui/wallpaper.png");
   background-size:cover;
-  height: 100%;
+  
   background:#38a2e0;
 }
 
