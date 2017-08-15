@@ -50,13 +50,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 app.post('/createurl', function(req, res){ 
     var url=req.body.urlfield;
     //res.send(url);
-    pool.query('select * from shorten', function (err, result) {
-      if (err) {
-          res.status(500).send();
-      } else {
-          res.send(result);
-      }
-   });
+    
 
 });
 // Do not change port, otherwise your app won't run on IMAD servers
