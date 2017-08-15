@@ -44,10 +44,9 @@ app.get('/ui/wallpaper.png', function(req, res){
   res.sendFile(path.join(__dirname, 'ui', 'wallpaper.png'));
 });
 
-app.get('/createurl/:input', function (req, res) {
-    var url = input;
-    res.send("This is"+url);
-
+app.post('form-url', function(req, res){    
+    console.log(req.query.url-field);
+    //console.log(req.query.password);  
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
