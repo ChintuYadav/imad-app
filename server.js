@@ -46,8 +46,13 @@ app.get('/ui/wallpaper.png', function(req, res){
 
 app.post('/createurl', function(req, res){ 
     var url=req.body.urlfield;
-    
-    res.send('You sent the name "' + req.body.urlfield + '".');
+    pool.query('INSERT INTO "Shorten" (long_url) VALUES ($1)', [url], function (err, result) {
+      if (err) {
+          res.status(500).send();
+      } else {
+          res.send('User successfully created: ' + username);
+      }
+   });
 
 });
 // Do not change port, otherwise your app won't run on IMAD servers
