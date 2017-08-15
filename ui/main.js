@@ -15,8 +15,8 @@ shorten.onclick=function(){
         };
         var url = document.getElementById('url-field').value;
         console.log(url);
-        request.open('POST', '/createurl', true);
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify({url: url}));  
+        request.open('GET', '/createurl', true);
+        //request.setRequestHeader('Content-Type', 'application/json');
+        request.send(null);  
         shorten.value = 'Registering...';
 };
