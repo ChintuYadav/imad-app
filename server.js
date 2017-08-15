@@ -45,7 +45,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 });
 
 app.post('/createurl', function(req, res){    
-    res.send(req.query.form-field);  
+    res.send(req.body.form-field);  
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
