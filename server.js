@@ -44,9 +44,9 @@ app.get('/ui/wallpaper.png', function(req, res){
   res.sendFile(path.join(__dirname, 'ui', 'wallpaper.png'));
 });
 
-app.post('/createurl', function (req, res) {
+app.get('/createurl', function (req, res) {
     var url = req.params.url;
-    res.send(url);
+    res.send("This is"+url);
 
 });
 // Do not change port, otherwise your app won't run on IMAD servers
