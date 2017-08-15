@@ -44,8 +44,8 @@ app.get('/ui/wallpaper.png', function(req, res){
   res.sendFile(path.join(__dirname, 'ui', 'wallpaper.png'));
 });
 
-app.get('/createurl', function (req, res) {
-    var url = req.params.url;
+app.get('/createurl/:input', function (req, res) {
+    var url = input;
     res.send("This is"+url);
 
 });
