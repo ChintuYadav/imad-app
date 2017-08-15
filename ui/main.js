@@ -1,5 +1,5 @@
 //console.log('Loaded!');
-var shorten=document.getElementById('shorten_btn');
+/*var shorten=document.getElementById('shorten_btn');
 shorten.onclick=function(){
     
         var request = new XMLHttpRequest();
@@ -19,4 +19,4 @@ shorten.onclick=function(){
         //request.setRequestHeader('Content-Type', 'application/json');
         request.send(null);  
         shorten.value = 'Registering...';
-};
+};*/
