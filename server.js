@@ -45,8 +45,8 @@ app.get('/ui/wallpaper.png', function(req, res){
 });
 
 app.post('/createurl', function(req, res){  
-    var url=req.body.user.url-field;
-    res.send('hello  '+url);  
+      res.send('You sent the name "' + req.body.url-field + '".');
+
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
