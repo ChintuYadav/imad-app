@@ -44,7 +44,7 @@ app.get('/ui/wallpaper.png', function(req, res){
   res.sendFile(path.join(__dirname, 'ui', 'wallpaper.png'));
 });
 
-app.post('form-url', function(req, res){    
+app.post('/createurl', function(req, res){    
     console.log(req.query.url-field);
     //console.log(req.query.password);  
 });
