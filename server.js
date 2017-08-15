@@ -16,7 +16,6 @@ var config = {
 
 var app = express();
 app.use(morgan('combined'));
-app.use(express.bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
