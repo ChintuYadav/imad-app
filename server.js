@@ -49,6 +49,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 
 app.post('/createurl', function(req, res){ 
     var url=req.body.urlfield;
+    res.send(url);
     pool.query('INSERT INTO "Shorten" (long_url) VALUES ($1)', [url], function (err, result) {
       if (err) {
           res.status(500).send();
