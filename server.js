@@ -14,10 +14,13 @@ var config = {
     password: process.env.DB_PASSWORD
 };
 var pool = new Pool(config);
+
 var app = express();
 app.use(morgan('combined'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 
 app.use(session({
     secret: 'someRandomSecretValue',
