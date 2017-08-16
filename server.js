@@ -70,7 +70,6 @@ app.post('/createurl', function(req, res){
                         flag = "From query";
                     }
                     var Id=result.row[0].id;
-                    code = convert.convertUrl(Id);
                     console.log(Id);
                     console.log(code);
                     //res.send({'shortUrl': code});
@@ -78,7 +77,6 @@ app.post('/createurl', function(req, res){
             }
             else{
                 var Id = result.rows[0].id;
-                code = convert.convertUrl(Id);
                 console.log(Id);
                 console.log(code);
                 //res.send({'shortUrl': code});
