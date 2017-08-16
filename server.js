@@ -66,7 +66,7 @@ app.post('/createurl', function(req, res){
                         counter = result.rows[0];
                         flag = "From query";
                     }
-                     res.send(JSON.stringify(result.rows));
+                     res.send("Url Shortening is in progress");
                 });
             }
             else{
