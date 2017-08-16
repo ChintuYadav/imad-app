@@ -71,24 +71,14 @@ app.post('/createurl', function(req, res){
                         counter = result.rows[0];
                         flag = "From query";
                         var Id=result.row[0].id;
-                        var converted='';
-                        while(Id){
-                            var rem=Id%62;
-                            Id=Math.floor(Id/62);
-                            converted=alphabet[rem].toString()+converted;
-                        }
+                        var converted=Convert.convertUrl(Id);
                         res.send({'shortUrl': converted});
                     }
                 });
             }
             else{
                 var Id = result.rows[0].id;
-                var converted='';
-                while(Id){
-                        var rem=Id%62;
-                        Id=Math.floor(Id/62);
-                        converted=alphabet[rem].toString()+converted;
-                }
+                var converted=Convert.convertUrl(Id);
                 res.send({'shortUrl': converted});
             }
         }
