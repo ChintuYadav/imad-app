@@ -82,12 +82,12 @@ app.post('/createurl', function(req, res){
                 });
             }
             else{
-                pool.query('SELECT ("id") FROM "Shorten" WHERE "long_url"=$1',[url], function(error, result1){
+                pool.query('SELECT * FROM "Shorten" WHERE "long_url"=$1',[url], function(error, result1){
                     if(error){
                         res.status(500).send("Flag: "+error.toString()); 
                     }
                     else{
-                        var id=resul1.rows[0];
+                        var id=resul1.rows[0].id;
                         res.send({'shortUrl': Id});
                     }
                 });
