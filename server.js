@@ -71,13 +71,17 @@ app.post('/createurl', function(req, res){
                     }
                     var Id=result.row[0].id;
                     code = convert.convertUrl(Id);
-                    res.send({'shortUrl': code});
+                    console.log(Id);
+                    console.log(code);
+                    //res.send({'shortUrl': code});
                 });
             }
             else{
                 var Id = result.rows[0].id;
                 code = convert.convertUrl(Id);
-                res.send({'shortUrl': code});
+                console.log(Id);
+                console.log(code);
+                //res.send({'shortUrl': code});
             }
         }
         
