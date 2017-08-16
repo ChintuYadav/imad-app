@@ -17,3 +17,7 @@ $('.btn-shorten').on('click', function(){
   });
 
 });
+
+$('.btn-shorten').on('click', function(){
+  $('#link').hide();
+});
