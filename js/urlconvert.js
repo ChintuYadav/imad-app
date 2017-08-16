@@ -9,3 +9,4 @@ function convertUrl(num){
     }
     return converted;
 }
+module.exports.convertUrl = convertUrl;
