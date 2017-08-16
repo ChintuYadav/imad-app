@@ -70,7 +70,7 @@ app.post('/createurl', function(req, res){
                 });
             }
             else{
-                var Id = result.rows[0].Id;
+                var Id = result.rows[0].id;
                 res.send({'shortUrl': Id});
             }
         }
