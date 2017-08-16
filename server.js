@@ -57,26 +57,24 @@ app.post('/createurl', function(req, res){
             res.status(500).send("Flag: "+err.toString());
         }
         else{
-            count=1;
+            if(result.rows.length===0){
+                res.status(403).send('Account does not exist. Please Register.');
+            }
+            else{
+                pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
+                    if(err){
+                        res.status(500).send("Flag: "+err.toString());  
+                    }
+                    else{
+                        counter = result.rows[0];
+                        flag = "From query";
+                    }
+                
+                });
+            }
         }
         
     });
-    if(count===0){
-        
-        pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
-          if(err){
-            res.status(500).send("Flag: "+err.toString());  
-          }
-          else{
-            counter = result.rows[0];
-            flag = "From query";
-          }
-          
-      });
-    }
-    else{
-        
-    }
     /**/
 
 });
