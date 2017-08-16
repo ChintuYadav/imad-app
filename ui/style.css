@@ -67,15 +67,14 @@ body {
   display: none;
   padding-top: 15px;
   padding-bottom:15px;
-  background-color:#00adaf;
+  background-color:white;
   margin:0 auto;
-  margin-top:10px;
-  box-shadow:0 0 10px black;
+  box-shadow:0 0 2px black;
   border-radius:6px;
 }
 
 #link a{
-  color: white;
+  color: #4791D2;
   font-size: 2em;
   margin-right: 20px;
 }
