@@ -70,16 +70,12 @@ app.post('/createurl', function(req, res){
                         flag = "From query";
                     }
                     var Id=result.row[0].id;
-                    console.log(Id);
-                    console.log(code);
-                    //res.send({'shortUrl': code});
+                    res.send({'shortUrl': Id});
                 });
             }
             else{
                 var Id = result.rows[0].id;
-                console.log(Id);
-                console.log(code);
-                //res.send({'shortUrl': code});
+                res.send({'shortUrl': Id});
             }
         }
         
