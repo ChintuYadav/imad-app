@@ -11,7 +11,7 @@ $('.btn-shorten').on('click', function(){
         var resultHTML = '<a class="result" href="' + short_url + '">'
             + data.shortUrl + '</a>';
         $('#link').html(resultHTML);
-        $('#link').hide().fadeIn('slow');
+        $('#link').fadeIn('slow');
     }
   });
 
