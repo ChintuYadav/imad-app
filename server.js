@@ -71,15 +71,15 @@ app.post('/createurl', function(req, res){
                         counter = result.rows[0];
                         flag = "From query";
                         var Id=result.row[0].id;
-                        var converted=Convert.convertUrl(Id);
-                        res.send({'shortUrl': converted});
+                        //var converted=Convert.convertUrl(Id);
+                        res.send({'shortUrl': Id});
                     }
                 });
             }
             else{
                 var Id = result.rows[0].id;
-                var converted=Convert.convertUrl(Id);
-                res.send({'shortUrl': converted});
+                //var converted=Convert.convertUrl(Id);
+                res.send({'shortUrl': Id});
             }
         }
         
