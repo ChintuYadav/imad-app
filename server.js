@@ -50,6 +50,8 @@ app.get('/ui/wallpaper.png', function(req, res){
 
 app.post('/createurl', function(req, res){ 
     var url = req.body.url;
+    var shortUrl='';
+    var code='';
     //res.send(url);
     console.log(url);
     var count=0;
@@ -68,13 +70,14 @@ app.post('/createurl', function(req, res){
                         flag = "From query";
                     }
                     var Id=result.row[0].id;
-                    //res.send({'shortUrl': url});
+                    code = convert.convertUrl(Id);
+                    res.send({'shortUrl': code});
                 });
             }
             else{
                 var Id = result.rows[0].id;
-                
-                //res.send({'shortUrl': Id});
+                code = convert.convertUrl(Id);
+                res.send({'shortUrl': code});
             }
         }
         
