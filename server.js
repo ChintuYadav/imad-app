@@ -77,6 +77,7 @@ app.post('/createurl', function(req, res){
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
+                        converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
                         res.send({'shortUrl': converted});
                     }
                 });
@@ -89,6 +90,7 @@ app.post('/createurl', function(req, res){
                     Id=Math.floor(Id/base);
                     converted=alphabet[rem].toString()+converted;
                 }
+                converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
                 res.send({'shortUrl': converted});
             }
         }
