@@ -66,11 +66,11 @@ app.post('/createurl', function(req, res){
                         counter = result.rows[0];
                         flag = "From query";
                     }
-                     res.send("Url Shortening is in progress");
+                     res.send({'shortUrl': url});
                 });
             }
             else{
-                res.send("Please wait for the short url");
+                res.send({'shortUrl': url});
             }
         }
         
