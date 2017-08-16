@@ -48,7 +48,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 });
 
 app.post('/createurl', function(req, res){ 
-    var alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
+    var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     var base = alphabet.length;
     var url = req.body.url;
     var shortUrl='';
@@ -72,23 +72,23 @@ app.post('/createurl', function(req, res){
                     }
                     var Id=result.row[0].id;
                     var converted='';
-                    while(Id){
-                        var rem=Id%base;
-                        Id=Math.floor(Id/base);
+                    /*while(Id){
+                        var rem=Id%62;
+                        Id=Math.floor(Id/62);
                         converted=alphabet[rem].toString()+converted;
-                    }
-                    res.send({'shortUrl': converted});
+                    }*/
+                    res.send({'shortUrl': Id});
                 });
             }
             else{
                 var Id = result.rows[0].id;
                 var converted='';
-                while(Id){
-                    var rem=Id%base;
-                    Id=Math.floor(Id/base);
-                    converted=alphabet[rem].toString()+converted;
-                }
-                res.send({'shortUrl': converted});
+                /*while(Id){
+                        var rem=Id%62;
+                        Id=Math.floor(Id/62);
+                        converted=alphabet[rem].toString()+converted;
+                    }*/
+                res.send({'shortUrl': Id});
             }
         }
         
