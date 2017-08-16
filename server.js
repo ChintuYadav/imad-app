@@ -74,7 +74,7 @@ app.post('/createurl', function(req, res){
                     var converted='';
                     while(Id){
                         var rem=Id%base;
-                        Id=Math.flooe(Id/base);
+                        Id=Math.floor(Id/base);
                         converted=alphabet[rem].toString()+converted;
                     }
                     res.send({'shortUrl': converted});
@@ -85,7 +85,7 @@ app.post('/createurl', function(req, res){
                 var converted='';
                 while(Id){
                     var rem=Id%base;
-                    Id=Math.flooe(Id/base);
+                    Id=Math.floor(Id/base);
                     converted=alphabet[rem].toString()+converted;
                 }
                 res.send({'shortUrl': converted});
