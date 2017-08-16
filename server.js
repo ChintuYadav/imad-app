@@ -58,8 +58,8 @@ app.post('/createurl', function(req, res){
             counter = result.rows[0];
             flag = "From query";
           }
+          res.send(result);
       });
-    res.send(result);
 
 });
 // Do not change port, otherwise your app won't run on IMAD servers
