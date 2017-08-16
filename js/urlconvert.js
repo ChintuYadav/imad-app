@@ -1,6 +1,6 @@
 var alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
 var base = alphabet.length;
-exports.hello = function(num) {
+exports.convert = function(num) {
     var converted='';
     while(num){
         var rem=num%base;
