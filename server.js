@@ -88,14 +88,7 @@ app.post('/createurl', function(req, res){
                     Id=Math.floor(Id/base);
                     converted=alphabet[rem].toString()+converted;
                 }
-                pool.query('INSERT INTO "Shorten" ("short_url") VALUES ($1) WHERE "long_url"=($2);', [converted, url], function(err1, result2){
-                    if(err1){
-                        res.status(500).send("Flag: "+err1.toString()); 
-                    }
-                    else{
-                        res.send({'shortUrl': converted});
-                    }
-                });
+                res.send({'shortUrl': converted});
             }
         }
         
