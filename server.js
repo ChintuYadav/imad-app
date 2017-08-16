@@ -56,7 +56,8 @@ app.post('/createurl', function(req, res){
     //res.send(url);
     console.log(url);
     var count=0;
-    pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1',[url],function(err, result){
+    //select exists (select true from table_name where table_column=?);SELECT * FROM "Shorten" WHERE "long_url" = $1
+    pool.query('SELECT EXISTS(SELECT TRUE FROM "Shorten" WHERE "long_url"=$1)',[url],function(err, result){
         if(err){
             res.status(500).send("Flag: "+err.toString());
         }
