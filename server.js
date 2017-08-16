@@ -101,7 +101,20 @@ app.post('/createurl', function(req, res){
 });
 
 app.get('/:redirect', function(req, res){
-    res.send(req.params.redirect);
+    var id=req.params.redirect;
+    var codeid=0;
+    var i=0;
+    while(i!=id)
+    {
+        if ('a' <= id.charAt(i) && id.charAt(i) <= 'z')
+          codeid = coeid*62 + id.charAt(i) - 'a';
+        if ('A' <= id.charAt(i) && id.charAt(i) <= 'Z')
+          codeid = codeid*62 + id.charAt(i) - 'A' + 26;
+        if ('0' <= id.charAt(i) && id.charAt(i) <= '9')
+          codeid = codeid*62 + id.charAt(i) - '0' + 52;
+        i=i+1;
+    }
+    res.send(codeid);
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
