@@ -107,12 +107,7 @@ app.get('/:redirect', function(req, res){
     //res.send(str);
     var codeid;
     var decoded = 0;
-    while(str){
-        var index = alphabet.indexOf(str[0]);
-        var power = str.length - 1;
-        decoded += index * (Math.pow(base, power));
-        str = str.substring(1);
-    }
+    
     res.send(decoded);
 });
 // Do not change port, otherwise your app won't run on IMAD servers
