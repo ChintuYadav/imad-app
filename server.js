@@ -69,15 +69,15 @@ app.post('/createurl', function(req, res){
                     else{
                         counter = result.rows[0];
                         flag = "From query";
+                        var Id=result.row[0].id;
+                        var converted='';
+                        /*while(Id){
+                            var rem=Id%62;
+                            Id=Math.floor(Id/62);
+                            converted=alphabet[rem].toString()+converted;
+                        }*/
+                        res.send({'shortUrl': Id});
                     }
-                    var Id=result.row[0].id;
-                    var converted='';
-                    /*while(Id){
-                        var rem=Id%62;
-                        Id=Math.floor(Id/62);
-                        converted=alphabet[rem].toString()+converted;
-                    }*/
-                    res.send({'shortUrl': Id});
                 });
             }
             else{
