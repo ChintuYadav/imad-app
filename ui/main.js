@@ -8,7 +8,10 @@ $('.btn-shorten').on('click', function(){
     success: function(data){
         var short_url="yeah! you got it man";
         // display the shortened URL to the user that is returned by the server
-        
+        var resultHTML = '<a class="result" href="' + short_url + '">'
+            + data.shortUrl + '</a>';
+        $('#link').html(resultHTML);
+        $('#link').hide().fadeIn('slow');
     }
   });
 
