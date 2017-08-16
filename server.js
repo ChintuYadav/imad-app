@@ -5,7 +5,7 @@ var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var convert = require('./js/urlconvert.js'); 
+const myModule = require('./js/urlconvert');
 
 var config = {
     user: 'chintuyadavsr336',
