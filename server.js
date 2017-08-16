@@ -50,7 +50,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 app.post('/createurl', function(req, res){ 
     var url=req.body.urlfield;
     //res.send(url);
-    pool.query('INSERT into "Shorten" (long_url) VALUES="http://www.codepen.io"',function(err,result){
+    pool.query('INSERT into "Shorten" (long_url) VALUES("http://www.codepen.io")',function(err,result){
           if(err){
             res.status(500).send("Flag: "+err.toString());  
           }
