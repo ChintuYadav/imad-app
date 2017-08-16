@@ -5,7 +5,7 @@ var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-const myModule = require('./js/urlconvert');
+var myModule = require('./js/urlconvert');
 
 var config = {
     user: 'chintuyadavsr336',
@@ -70,15 +70,13 @@ app.post('/createurl', function(req, res){
                         flag = "From query";
                     }
                     var Id=result.row[0].id;
-                    let val = myModule.convert(Id); 
-                    //code=convert.convertUrl(Id);
+                    code=convert.converturl(Id);
                     res.send({'shortUrl': val});
                 });
             }
             else{
                 var Id = result.rows[0].id;
-                let val = myModule.convert(Id); 
-                //code=convert.convertUrl(Id);
+                code=convert.converturl(Id);
                 res.send({'shortUrl': val});
             }
         }
