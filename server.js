@@ -5,7 +5,7 @@ var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var Convert = require('urlconvert.js');
+//var Convert = require('urlconvert.js');
 var config = {
     user: 'chintuyadavsr336',
     database: 'chintuyadavsr336',
@@ -58,7 +58,7 @@ app.post('/createurl', function(req, res){
     var count=0;
     //select exists (select true from table_name where table_column=?);
     pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1 LIMIT 1',[url],function(err, result){
-        if(err){
+        if(result){
             res.status(500).send("Flag: "+err.toString());
         }
         else{
