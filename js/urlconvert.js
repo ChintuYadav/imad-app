@@ -1,6 +1,6 @@
 var alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
 var base = alphabet.length;
-function convertUrl(num){
+exports.hello = function(num) {
     var converted='';
     while(num){
         var rem=num%base;
@@ -9,4 +9,3 @@ function convertUrl(num){
     }
     return converted;
 }
-module.exports.convertUrl = convertUrl;
