@@ -18,6 +18,6 @@ $('.btn-shorten').on('click', function(){
 
 });
 
-$('body').on('click', function(){
+$('.form-control').on('click', function(){
   $('#link').slideUp(500);
 });
