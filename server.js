@@ -51,7 +51,16 @@ app.post('/createurl', function(req, res){
     var url=req.body.urlfield;
     //res.send(url);
     console.log(url);
-    pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
+    pool.query('SELECT "long_url" from "Shorten" where "long_url"="'+url+'"', function(err, result){
+        if(err){
+            res.status(500).send("Flag: "+err.toString());
+        }
+        else{
+            res.send(result);
+        }
+        
+    });
+    /*pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
           if(err){
             res.status(500).send("Flag: "+err.toString());  
           }
@@ -59,8 +68,8 @@ app.post('/createurl', function(req, res){
             counter = result.rows[0];
             flag = "From query";
           }
-          res.send(result);
-      });
+          
+      });*/
 
 });
 // Do not change port, otherwise your app won't run on IMAD servers
