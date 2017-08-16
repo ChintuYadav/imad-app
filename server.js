@@ -51,12 +51,12 @@ app.post('/createurl', function(req, res){
     var url=req.body.urlfield;
     //res.send(url);
     console.log(url);
-    pool.query('SELECT long_url FROM "Shorten" WHERE long_url="'+url+'"', function(err, result){
+    pool.query('SELECT (long_url) FROM "Shorten" WHERE "long_url" = $1',[url],function(err, result){
         if(err){
             res.status(500).send("Flag: "+err.toString());
         }
         else{
-            res.send(result);
+            res.send(JSON.stringify(result.rows));
         }
         
     });
