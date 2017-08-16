@@ -1,22 +1,17 @@
-//console.log('Loaded!');
-/*var shorten=document.getElementById('shorten_btn');
-shorten.onclick=function(){
-    
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              // Take some action
-              if (request.status === 200) {
-                  shorten.value = 'Registered!';
-              } else {
-                  register.value = 'Register';
-              }
-          }
-        };
-        var url = document.getElementById('url-field').value;
-        console.log(url);
-        request.open('GET', '/createurl/'+url, true);
-        //request.setRequestHeader('Content-Type', 'application/json');
-        request.send(null);  
-        shorten.value = 'Registering...';
-};*/
+$('.btn-shorten').on('click', function(){
+  // AJAX call to /api/shorten with the URL that the user entered in the input box
+  $.ajax({
+    url: '/createurl',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {url: $('#url-field').val()},
+    success: function(data){
+        // display the shortened URL to the user that is returned by the server
+        var resultHTML = '<a class="result" href="' + data.shortUrl + '">'
+            + data.shortUrl + '</a>';
+        $('#link').html(resultHTML);
+        $('#link').hide().fadeIn('slow');
+    }
+  });
+
+});
