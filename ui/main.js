@@ -18,6 +18,6 @@ $('.btn-shorten').on('click', function(){
 
 });
 
-$('.btn-shorten').on('click', function(){
+$('body').on('click', function(){
   $('#link').hide();
 });
