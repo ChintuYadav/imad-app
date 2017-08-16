@@ -1,8 +1,11 @@
+.btn:focus, .btn-shorten:focus{
+  outline: 0 !important;
+}
+
 html,
 body {
-    
   height: 100%;
-  background:#38a2e0;
+  background-color: #4791D2;
 }
 
 body {
@@ -13,7 +16,7 @@ body {
 
 .btn-shorten {
   color: #ffffff;
-  background-color: #e05f38;
+  background-color: #F89406;
   border: none;
 }
 
@@ -22,7 +25,7 @@ body {
 .btn-shorten:active,
 .btn-shorten.active {
   color: #ffffff;
-  background-color: #f7724a;
+  background-color: #FA8900;
   border: none;
 }
 
@@ -41,7 +44,7 @@ body {
 .main-container {
   margin-right: auto;
   margin-left: auto;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 .inner {
