@@ -51,7 +51,7 @@ app.post('/createurl', function(req, res){
     var url=req.body.urlfield;
     //res.send(url);
     console.log(url);
-    pool.query('SELECT "long_url" from "Shorten" where "long_url"="'+url+'"', function(err, result){
+    pool.query('SELECT * from "Shorten" where long_url="'+url+'"', function(err, result){
         if(err){
             res.status(500).send("Flag: "+err.toString());
         }
