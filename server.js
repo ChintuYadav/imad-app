@@ -66,12 +66,13 @@ app.post('/createurl', function(req, res){
                         counter = result.rows[0];
                         flag = "From query";
                     }
-                     res.send({'shortUrl': url});
+                     //res.send({'shortUrl': url});
                 });
             }
             else{
                 var Id = result.rows[0].Id;
-                res.send({'shortUrl': Id});
+                console.log(Id);
+                //res.send({'shortUrl': Id});
             }
         }
         
