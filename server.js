@@ -69,6 +69,9 @@ app.post('/createurl', function(req, res){
                      res.send(JSON.stringify(result.rows));
                 });
             }
+            else{
+                res.send("Please wait for the short url");
+            }
         }
         
     });
