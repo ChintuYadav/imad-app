@@ -56,8 +56,8 @@ app.post('/createurl', function(req, res){
     //res.send(url);
     console.log(url);
     var count=0;
-    //select exists (select true from table_name where table_column=?);SELECT * FROM "Shorten" WHERE "long_url" = $1
-    pool.query('SELECT EXISTS(SELECT TRUE FROM "Shorten" WHERE "long_url"=$1)',[url],function(err, result){
+    //select exists (select true from table_name where table_column=?);
+    pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1',[url],function(err, result){
         if(err){
             res.status(500).send("Flag: "+err.toString());
         }
@@ -82,15 +82,6 @@ app.post('/createurl', function(req, res){
                 });
             }
             else{
-                pool.query('SELECT * FROM "Shorten" WHERE "long_url"=$1',[url], function(error, result1){
-                    if(error){
-                        res.status(500).send("Flag: "+error.toString()); 
-                    }
-                    else{
-                        var id=resul1.rows[0].id;
-                        res.send({'shortUrl': Id});
-                    }
-                });
                 var Id = result.rows[0].id;
                 var converted='';
                 /*while(Id){
@@ -98,7 +89,7 @@ app.post('/createurl', function(req, res){
                         Id=Math.floor(Id/62);
                         converted=alphabet[rem].toString()+converted;
                     }*/
-                
+                res.send({'shortUrl': Id});
             }
         }
         
