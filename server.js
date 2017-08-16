@@ -104,7 +104,7 @@ app.get('/:redirect', function(req, res){
     var id=req.params.redirect;
     var codeid=0;
     var i=0;
-    while(i>=id)
+    while(i>id)
     {
         if ('a' <= id.charAt(i) && id.charAt(i) <= 'z')
           codeid = coeid*62 + id.charAt(i) - 'a';
