@@ -50,7 +50,16 @@ app.get('/ui/wallpaper.png', function(req, res){
 app.post('/createurl', function(req, res){ 
     var url=req.body.urlfield;
     //res.send(url);
-    res.send("This is the url: "+url);
+    pool.query('INSERT into "Shorten" (long_url) VALUES="http://www.codepen.io"',function(err,result){
+          if(err){
+            res.status(500).send("Flag: "+err.toString());  
+          }
+          else{
+            counter = result.rows[0];
+            flag = "From query";
+          }
+      });
+    res.send(result);
 
 });
 // Do not change port, otherwise your app won't run on IMAD servers
