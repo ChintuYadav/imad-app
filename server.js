@@ -76,6 +76,7 @@ app.post('/createurl', function(req, res){
                     }
                     else{
                         count=result1.row[0];
+                        res.send({'count': count});
                         console.log("count-->"+count);
                         //res.send({'shortUrl': count});
                     }
