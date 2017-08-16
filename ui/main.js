@@ -19,5 +19,5 @@ $('.btn-shorten').on('click', function(){
 });
 
 $('body').on('click', function(){
-  $('#link').hide();
+  $('#link').slideUp(500);
 });
