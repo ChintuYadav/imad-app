@@ -58,9 +58,6 @@ app.post('/createurl', function(req, res){
         }
         else{
             if(result.rows.length===0){
-                res.status(403).send('Account does not exist. Please Register.');
-            }
-            else{
                 pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
                     if(err){
                         res.status(500).send("Flag: "+err.toString());  
