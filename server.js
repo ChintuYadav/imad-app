@@ -100,7 +100,7 @@ app.post('/createurl', function(req, res){
                     converted=alphabet[rem].toString()+converted;
                 }*/
                 //converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
-                //res.send({'shortUrl': converted});
+                res.send({'shortUrl': converted});
             }
         }
         
