@@ -62,7 +62,7 @@ app.post('/createurl', function(req, res){
         }
         else{
             var converted='';
-            var num=0;
+            var num;
             if(result.rows.length===0){
                 
                 pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
