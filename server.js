@@ -78,12 +78,12 @@ app.post('/createurl', function(req, res){
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
-                        pool.query('UPDATE "Shorten" SET "short_url"=$1 WHERE "id"=$2;',[converted, num],function(err,result){
+                        pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1 LIMIT 1;',[converted, num],function(err,result){
                             if(err){
                                 res.status(500).send("Flag: "+err.toString()); 
                             }
                             else{
-                                res.send({'shortUrl': "Inserted"});
+                                res.send(result);
                             }
                         });
                         //converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
