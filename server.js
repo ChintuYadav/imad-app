@@ -111,9 +111,14 @@ app.get('/:redirect', function(req, res){
     var alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
     var base = alphabet.length;
     var str=req.params.redirect;
-    var codeid;
     var decoded = 0;
-    res.send(str);
+    while(str){
+        var index = alphabet.indexOf(str[0]);
+        var power = str.length - 1;
+        decoded += index * (Math.pow(base, power));
+        str = str.substring(1);
+    }
+    res.send(decoded);
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
