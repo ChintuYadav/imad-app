@@ -78,7 +78,11 @@ app.post('/createurl', function(req, res){
                         res.status(500).send(err.toString());
                     }
                     else{
-                        num=result.rows[0].id;
+                        if(result.rows.length===0){
+                            
+                        }
+                        else
+                            num=result.rows[0].id;
                     }
                 });
                 res.send({'shortUrl': num});
