@@ -70,18 +70,7 @@ app.post('/createurl', function(req, res){
                         res.status(500).send("Flag: "+err.toString());  
                     }
                     else{
-                        pool.query('SELECT * FROM "Shorten" WHERE "long_url" =$1',[url], function(err,result){
-                            if(err){
-                                res.status(500).send(err.toString());
-                            }
-                            else{
-                                if(result.rows.length===0){
-                                    num=-2;
-                                }
-                                else
-                                    num=result.rows[0].id;
-                            }
-                        });
+                        num=900;
                     }
                 });
                 
