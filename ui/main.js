@@ -9,7 +9,7 @@ $('.btn-shorten').on('click', function(){
         var short_url=data.shortUrl;
         // display the shortened URL to the user that is returned by the server
         var resultHTML = '<a class="result" href="' + short_url + '" target="_blank">'
-            + data.shortUrl + '</a>';
+            + data.shortUrl + '</a>'+'<button class="btn btn-primary">';
         $("#link").html(resultHTML);
         //$("#link").css({'display':'block'});
         $("#link").slideDown(500);
