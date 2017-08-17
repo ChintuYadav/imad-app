@@ -70,17 +70,10 @@ app.post('/createurl', function(req, res){
                         res.status(500).send("Flag: "+err.toString());  
                     }
                     else{
-                        flag = "From query";
-                        var Id=result.row[0].id;
-                        num=Id;
-                        while(Id){
-                            var rem=Id%base;
-                            Id=Math.floor(Id/base);
-                            converted=alphabet[rem].toString()+converted;
-                        }
+                        
                     }
                 });
-                res.send({'shortUrl': converted});
+                res.send({'shortUrl': url});
               
             }
             else{
