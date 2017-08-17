@@ -86,7 +86,14 @@ app.post('/createurl', function(req, res){
                                         Id=Math.floor(Id/base);
                                         converted=alphabet[rem].toString()+converted;
                                     }
-                                    res.send({'shortUrl': converted});
+                                    pool.query('UPDATE "Shorten" SET "short_url" =$1 WHERE "id"= $2',[converted, num], function(error1, result2){
+                                        if(error1){
+                                            res.status(500).send(error.toString());
+                                        }
+                                        else{
+                                            res.send({'shortUrl': converted});
+                                        }
+                                    });
                                 }
                             }
                         });
