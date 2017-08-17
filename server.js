@@ -73,7 +73,15 @@ app.post('/createurl', function(req, res){
                         
                     }
                 });
-                res.send({'shortUrl': url});
+                pool.query('SELECT * FROM "Shorten" WHERE "long_url" =$1',[url], function(err,result){
+                    if(err){
+                        res.status(500).send(err.toString());
+                    }
+                    else{
+                        num=result.rows[0].id;
+                    }
+                });
+                res.send({'shortUrl': num});
               
             }
             else{
