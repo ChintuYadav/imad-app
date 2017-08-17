@@ -92,7 +92,7 @@ app.post('/createurl', function(req, res){
                 
             }
             else{
-                pool.query('SELECT * FROM "Shorten" WHERE "long_url"= $1', [url], function(err, res){
+                pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1 LIMIT 1;', [url], function(err, res){
                     if(err){
                         res.status(500).send(err.toString());
                     }
