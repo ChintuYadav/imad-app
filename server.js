@@ -80,7 +80,7 @@ app.post('/createurl', function(req, res){
                         }
                     }
                 });
-                res.send({'shortUrl': "Hi"});
+                res.send({'shortUrl': converted});
               
             }
             else{
