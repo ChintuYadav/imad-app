@@ -64,12 +64,12 @@ app.post('/createurl', function(req, res){
             var converted='';
             var num=0;
             if(result.rows.length===0){
+                
                 pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
                     if(err){
                         res.status(500).send("Flag: "+err.toString());  
                     }
                     else{
-                        //counter = result.rows[0];
                         flag = "From query";
                         var Id=result.row[0].id;
                         num=Id;
@@ -80,6 +80,7 @@ app.post('/createurl', function(req, res){
                         }
                     }
                 });
+                res.send({'shortUrl': "Hi"});
               
             }
             else{
