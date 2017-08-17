@@ -66,7 +66,12 @@ body {
 }
 .btn-primary{
     background-color:white;
+    color:#4791D2;
     border:2px solid #4791D2;
+}
+.btn-primary:hover{
+    background-color:#4791D2;
+    color:white;
 }
 #link {
   display: none;
