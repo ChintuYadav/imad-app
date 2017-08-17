@@ -12,7 +12,7 @@ $('.btn-shorten').on('click', function(){
             + data.shortUrl + '</a>';
         $("#link").html(resultHTML);
         //$("#link").css({'display':'block'});
-        $("#link").slideDown(1200);
+        $("#link").slideDown(500);
     }
   });
 
