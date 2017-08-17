@@ -59,7 +59,7 @@ app.post('/createurl', function(req, res){
     //select exists (select true from table_name where table_column=?);
     pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1 LIMIT 1;',[url],function(err, result){
         if(err){
-            res.status(500).send("Flag: "+err.toString());
+            result.status(500).send("Flag: "+err.toString());
         }
         else{
             var converted='';
@@ -92,15 +92,8 @@ app.post('/createurl', function(req, res){
                 
             }
             else{
-                pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1 LIMIT 1;', [url], function(err, res){
-                    if(err){
-                        res.status(500).send(err.toString());
-                    }
-                    else{
-                        converted=res.rows[0].id;
-                    }
-                });
-                res.send({'shortUrl': converted});
+                converted=result.rows[0].id;
+                result.send({'shortUrl': converted});
             }
         }
         
