@@ -77,8 +77,8 @@ app.post('/createurl', function(req, res){
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
-                        pool.query('INSERT INTO "Shorten" ( "short_url") VALUES ($1);',[converted] ,function(error, result1){
-                            if(error){
+                        pool.query('INSERT INTO "Shorten" ( "short_url") VALUES ($1) WHERE long_url=($2);',[converted, url] ,function(err, result){
+                            if(err){
                                 res.status(500).send("Flag: "+error.toString());
                             }
                             else{
