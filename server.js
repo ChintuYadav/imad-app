@@ -62,25 +62,34 @@ app.post('/createurl', function(req, res){
             res.status(500).send("Flag: "+err.toString());
         }
         else{
+            var converted='';
+            var num=0;
             if(result.rows.length===0){
                 pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
                     if(err){
                         res.status(500).send("Flag: "+err.toString());  
                     }
                     else{
-                        counter = result.rows[0];
+                        //counter = result.rows[0];
                         flag = "From query";
                         var Id=result.row[0].id;
-                        var num=Id;
-                        var converted='';
+                        num=Id;
                         while(Id){
                             var rem=Id%base;
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
                         
-                        //converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
-                        //result.send({'shortUrl': converted});
+                        
+                    }
+                });
+                pool.query('UPDATE "Shorten" SET "short_url" = ($1) WHERE "id"= $2',[converted, num], function(err, res){
+                    if(err){
+                        res.status(500).send("Flag: "+err.toString());  
+                    }
+                    else{
+                        converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
+                        result.send({'shortUrl': converted});
                     }
                 });
             }
