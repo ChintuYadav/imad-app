@@ -86,8 +86,8 @@ app.post('/createurl', function(req, res){
                                 res.send("Inserted");
                             }
                         });
-                        converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
-                        result.send({'shortUrl': converted});
+                        //converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
+                        //result.send({'shortUrl': converted});
                     }
                 });
             }
