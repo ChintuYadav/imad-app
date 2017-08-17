@@ -55,7 +55,6 @@ app.post('/createurl', function(req, res){
     var code='';
     //res.send(url);
     console.log(url);
-    var count=0;
     //select exists (select true from table_name where table_column=?);
     pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1 LIMIT 1;',[url],function(err, result){
         if(err){
@@ -92,7 +91,7 @@ app.post('/createurl', function(req, res){
                 
             }
             else{
-                converted=result.rows[0].id;
+                converted=result.rows[0].long_url;
                 result.send({'shortUrl': converted});
             }
         }
