@@ -65,27 +65,11 @@ app.post('/createurl', function(req, res){
             var num=0;
             if(result.rows.length===0){
                 
-                pool.query('SELECT MAX(id) FROM "Shorten";', function(err, res){
-                    if(err){
-                        res.status(500).send(err.toString());
-                    }
-                    else{
-                        var id=res.rows[0];
-                        var id1=id+1;
-                        num=id1;
-                        while(id1){
-                            var rem=Id%base;
-                            Id=Math.floor(Id/base);
-                            converted=alphabet[rem].toString()+converted;
-                        }
-                        res.send({'shortUrl': id});
-                    }
-                });
+              
             }
             else{
                 
-                converted=res.rows[0].id;
-                res.send({'shortUrl': converted});
+                
             
             }
         }
