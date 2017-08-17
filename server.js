@@ -64,6 +64,7 @@ app.post('/createurl', function(req, res){
             var converted='';
             var num=0;
             if(result.rows.length===0){
+                
                 pool.query('SELECT MAX(id) FROM "Shorten";', function(err, res){
                     if(err){
                         res.status(500).send(err.toString());
@@ -77,12 +78,15 @@ app.post('/createurl', function(req, res){
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
+                        res.send({'shortUrl': id});
                     }
                 });
             }
             else{
+                
                 converted=res.rows[0].id;
                 res.send({'shortUrl': converted});
+            
             }
         }
         
@@ -92,12 +96,7 @@ app.post('/createurl', function(req, res){
 });
 
 app.get('/:redirect', function(req, res){
-    var alphabet = "1234567890abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
-    var base = alphabet.length;
-    var str=req.params.redirect;
-    var decoded = 0;
     
-    res.send(decoded);
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
