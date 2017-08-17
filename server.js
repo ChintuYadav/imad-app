@@ -91,6 +91,7 @@ app.post('/createurl', function(req, res){
                                             res.status(500).send(error.toString());
                                         }
                                         else{
+                                            converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
                                             res.send({'shortUrl': converted});
                                         }
                                     });
