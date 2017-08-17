@@ -80,7 +80,13 @@ app.post('/createurl', function(req, res){
                                 }
                                 else{
                                     num=result1.rows[0].id;
-                                    res.send({'shortUrl': num});
+                                    var Id=num;
+                                    while(Id){
+                                        var rem=Id%base;
+                                        Id=Math.floor(Id/base);
+                                        converted=alphabet[rem].toString()+converted;
+                                    }
+                                    res.send({'shortUrl': converted});
                                 }
                             }
                         });
