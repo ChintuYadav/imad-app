@@ -63,7 +63,7 @@ app.post('/createurl', function(req, res){
         }
         else{
             if(result.rows.length===0){
-                pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
+                pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1)',[url],function(err,result){
                     if(err){
                         res.status(500).send("Flag: "+err.toString());  
                     }
@@ -77,7 +77,7 @@ app.post('/createurl', function(req, res){
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
-                        pool.query('INSERT INTO "Shorten" ( "short_url") VALUES ($1) WHERE "long_url"=$2;',[converted, url] ,function(err, result){
+                        pool.query('INSERT INTO "Shorten" ( "short_url") VALUES ($1) WHERE "long_url"=$2',[converted, url] ,function(err, result){
                             if(err){
                                 result.status(500).send("Flag: "+error.toString());
                             }
