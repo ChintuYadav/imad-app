@@ -79,7 +79,7 @@ app.post('/createurl', function(req, res){
                         }
                         pool.query('INSERT INTO "Shorten" ( "short_url") VALUES ($1) WHERE long_url=($2);',[converted, url] ,function(err, result){
                             if(err){
-                                res.status(500).send("Flag: "+error.toString());
+                                result.status(500).send("Flag: "+error.toString());
                             }
                             else{
                                 converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
