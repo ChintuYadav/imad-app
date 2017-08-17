@@ -134,7 +134,7 @@ app.get('/:redirect', function(req, res){
                 res.send("The requested URL is not found")
             }
             else{
-                var long=result.rows[0];
+                var long=result.rows[0].long_url;
                 res.send(long);
             }
         }
