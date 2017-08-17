@@ -77,8 +77,15 @@ app.post('/createurl', function(req, res){
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
-                        converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
-                        res.send({'shortUrl': converted});
+                        pool.query('INSERT INTO "Shorten" ( "short_url") VALUES ($1);',[converted] ,function(error, result1){
+                            if(error){
+                                res.status(500).send("Flag: "+error.toString());
+                            }
+                            else{
+                                converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
+                                res.send({'shortUrl': converted});
+                            }
+                        });
                     }
                 });
             }
