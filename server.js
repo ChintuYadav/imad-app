@@ -124,7 +124,7 @@ app.post('/createurl', function(req, res){
 });
 
 app.get('/:redirect', function(req, res){
-    res.send(res.params.redirect);
+    res.send(req.params.redirect);
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
