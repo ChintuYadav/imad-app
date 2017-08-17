@@ -83,7 +83,7 @@ app.post('/createurl', function(req, res){
                                 res.status(500).send("Flag: "+err.toString()); 
                             }
                             else{
-                                res.send("Inserted");
+                                res.send({'shortUrl': "Inserted"});
                             }
                         });
                         //converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
