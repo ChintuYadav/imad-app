@@ -135,7 +135,7 @@ app.get('/:redirect', function(req, res){
             }
             else{
                 var long=result.rows[0].long_url;
-                res.writeHead(302, {'Location': 'https://example.com' + long});
+                res.writeHead(302, {'Location': long});
                 res.end();
             }
         }
