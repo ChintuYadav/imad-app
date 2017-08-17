@@ -97,7 +97,7 @@ app.post('/createurl', function(req, res){
                         res.status(500).send(err.toString());
                     }
                     else{
-                        converted=res.rows[0].short_url;
+                        converted=res.rows[0].id;
                     }
                 });
                 res.send({'shortUrl': converted});
