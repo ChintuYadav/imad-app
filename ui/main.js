@@ -18,7 +18,7 @@ $('.btn-shorten').on('click', function(){
 
 });
 $('#copy_btn').on('click', function(){
-   alert("Hai"); 
+   $('#link').slideUp(500); 
 });
 $('.form-control').on('click', function(){
   $('#link').slideUp(500);
