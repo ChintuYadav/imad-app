@@ -104,7 +104,17 @@ app.post('/createurl', function(req, res){
               
             }
             else{
-                
+                pool.query('SELECT * FROM "Shorten" WHERE "long_url" =$1 LIMIT 1;',[url], function(err, result){
+                    if(err){
+                        res.status(500).send(err.toString());
+                    }
+                    else{
+                        var converted='';
+                        converted=result.rows[0].short_url;
+                        converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
+                        res.send({'shortUrl': converted});
+                    }
+                });
             }
         }
         
