@@ -92,7 +92,7 @@ app.post('/createurl', function(req, res){
             }
             else{
                 converted=res.rows[0].long_url;
-                result.send({'shortUrl': converted});
+                res.send({'shortUrl': converted});
             }
         }
         
