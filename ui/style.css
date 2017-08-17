@@ -58,7 +58,10 @@ body {
 .glyphicon-link {
   font-size: 2em;
 }
-
+.glyphicon-heart{
+    font-size:90px;
+    color:red;
+}
 .inner h1 {
   margin-top: 5px;
 }
