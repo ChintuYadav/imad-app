@@ -77,6 +77,7 @@ app.post('/createurl', function(req, res){
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
+                        
                         converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
                         result.send({'shortUrl': converted});
                     }
@@ -105,13 +106,7 @@ app.get('/:redirect', function(req, res){
     var base = alphabet.length;
     var str=req.params.redirect;
     var decoded = 0;
-    var i=str.length;
-    while(i--){
-        var index = alphabet.indexOf(str[0]);
-        var power = str.length - 1;
-        decoded += index * (Math.pow(base, power));
-        str = str.substring(1);
-    }
+    
     res.send(decoded);
 });
 // Do not change port, otherwise your app won't run on IMAD servers
