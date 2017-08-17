@@ -124,7 +124,21 @@ app.post('/createurl', function(req, res){
 });
 
 app.get('/:redirect', function(req, res){
-    res.send(req.params.redirect);
+    var short_url=req.params.redirect;
+    pool.query('SELECT "long_url" FROM "Shorten" WHERE "short_url"= $1;',[short_url], function(err, result){
+        if(err){
+            res.status(500).send(err.toString());
+        }
+        else{
+            if(result.rows.length===0){
+                res.send("The requested URL is not found")
+            }
+            else{
+                var long=result.rows[0];
+                res.send(long);
+            }
+        }
+    });
 });
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
