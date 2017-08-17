@@ -48,7 +48,7 @@ app.get('/ui/wallpaper.png', function(req, res){
 });
 
 app.post('/createurl', function(req, res){ 
-    var alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
+    var alphabet = "1234567890abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
     var base = alphabet.length;
     var url = req.body.url;
     var shortUrl='';
@@ -108,11 +108,12 @@ app.post('/createurl', function(req, res){
 });
 
 app.get('/:redirect', function(req, res){
-    var alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
+    var alphabet = "1234567890abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
     var base = alphabet.length;
     var str=req.params.redirect;
     var decoded = 0;
-    while(str){
+    var i=str.length;
+    while(i--){
         var index = alphabet.indexOf(str[0]);
         var power = str.length - 1;
         decoded += index * (Math.pow(base, power));
