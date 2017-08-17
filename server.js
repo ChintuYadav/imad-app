@@ -78,7 +78,7 @@ app.post('/createurl', function(req, res){
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
-                        pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1 LIMIT 1;',[converted, num],function(err,result){
+                        pool.query('SELECT * FROM "Shorten" WHERE "long_url" = $1 LIMIT 1;',[url],function(err,result){
                             if(err){
                                 res.status(500).send("Flag: "+err.toString()); 
                             }
