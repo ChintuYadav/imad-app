@@ -72,7 +72,7 @@ app.post('/createurl', function(req, res){
                     else{
                         var id=res.rows[0];
                         var id1=id+1;
-                        var num=id1;
+                        num=id1;
                         while(id1){
                             var rem=Id%base;
                             Id=Math.floor(Id/base);
@@ -92,14 +92,14 @@ app.post('/createurl', function(req, res){
                 
             }
             else{
-                /*var Id = result.rows[0].id;
-                var converted='';
-                while(Id){
-                    var rem=Id%base;
-                    Id=Math.floor(Id/base);
-                    converted=alphabet[rem].toString()+converted;
-                }*/
-                //converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
+                pool.query('SELECT * FROM "Shorten" WHERE "id"= $1', [num], function(err, res){
+                    if(err){
+                        res.status(500).send(err.toString());
+                    }
+                    else{
+                        converted=res.rows[0].short_url;
+                    }
+                });
                 res.send({'shortUrl': converted});
             }
         }
