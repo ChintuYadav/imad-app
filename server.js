@@ -62,7 +62,7 @@ app.post('/createurl', function(req, res){
         }
         else{
             var converted='';
-            var num=90;
+            var num=0;
             if(result.rows.length===0){
                 
                 pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
@@ -71,10 +71,10 @@ app.post('/createurl', function(req, res){
                     }
                     else{
                         num=num+1;
+                        res.send({'shortUrl': num});
                     }
                 });
                 
-                res.send({'shortUrl': num});
               
             }
             else{
