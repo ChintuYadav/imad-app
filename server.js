@@ -92,15 +92,15 @@ app.post('/createurl', function(req, res){
                 });
             }
             else{
-                var Id = result.rows[0].id;
+                /*var Id = result.rows[0].id;
                 var converted='';
                 while(Id){
                     var rem=Id%base;
                     Id=Math.floor(Id/base);
                     converted=alphabet[rem].toString()+converted;
-                }
-                converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
-                res.send({'shortUrl': converted});
+                }*/
+                //converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
+                //res.send({'shortUrl': converted});
             }
         }
         
