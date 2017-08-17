@@ -65,31 +65,31 @@ app.post('/createurl', function(req, res){
             var converted='';
             var num=0;
             if(result.rows.length===0){
-                pool.query('INSERT INTO "Shorten" ( "long_url") VALUES ($1);',[url],function(err,result){
+                pool.query('SELECT MAX(id) FROM "Shorten";', function(err, res){
                     if(err){
-                        res.status(500).send("Flag: "+err.toString());  
+                        res.status(500).send(err.toString());
                     }
                     else{
-                        //counter = result.rows[0];
-                        flag = "From query";
-                        var Id=result.row[0].id;
-                        num=Id;
-                        while(Id){
+                        var id=res.rows[0];
+                        var id1=id+1;
+                        var num=id1;
+                        while(id1){
                             var rem=Id%base;
                             Id=Math.floor(Id/base);
                             converted=alphabet[rem].toString()+converted;
                         }
                     }
                 });
-                pool.query('UPDATE "Shorten" SET "short_url"= $1 WHERE "id"= $2;',[converted, num], function(err, res){
+                pool.query('INSERT INTO "Shorten" ( "long_url", "short_url") VALUES ($1), ($2);',[url, converted],function(err,result){
                     if(err){
                         res.status(500).send("Flag: "+err.toString());  
                     }
                     else{
-                        converted="http://chintuyadavsr336.imad.hasura-app.io/"+converted;
+                        //counter = result.rows[0];
                         res.send({'shortUrl': converted});
                     }
                 });
+                
             }
             else{
                 /*var Id = result.rows[0].id;
