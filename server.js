@@ -79,19 +79,9 @@ app.post('/createurl', function(req, res){
                         }
                     }
                 });
-                pool.query('INSERT INTO "Shorten" ( "long_url", "short_url") VALUES ($1, $2) WHERE "id"=$3;',[url, converted, num],function(err,result){
-                    if(err){
-                        res.status(500).send("Flag: "+err.toString());  
-                    }
-                    else{
-                        //counter = result.rows[0];
-                        res.send({'shortUrl': converted});
-                    }
-                });
-                
             }
             else{
-                converted=res.rows[0].long_url;
+                converted=res.rows[0].id;
                 res.send({'shortUrl': converted});
             }
         }
