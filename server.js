@@ -79,7 +79,7 @@ app.post('/createurl', function(req, res){
                     }
                     else{
                         if(result.rows.length===0){
-                            
+                            num=-2;
                         }
                         else
                             num=result.rows[0].id;
