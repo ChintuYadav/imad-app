@@ -17,8 +17,8 @@ $('.btn-shorten').on('click', function(){
   });
 
 });
-$('.btn-primary').on('click', function(){
-   $('body').css({'background-color': 'black'}) ;
+$(".btn-primary").click(function(){ 
+    $("#link").css("background-color","yellow");
 });
 $('.form-control').on('click', function(){
   $('#link').slideUp(500);
