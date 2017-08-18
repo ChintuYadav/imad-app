@@ -12,7 +12,7 @@ $('.btn-shorten').on('click', function(){
             + data.shortUrl + '</a>'+'<button class="btn btn-primary" id="copy_btn">copy</button>';
         //$("#link").html(resultHTML);
         $('#dialog_title_span').text(html);
-        //$("#link").css({'display':'block'});
+        ("#link").css({'display':'block'});
         $("#link").slideDown(500);
     }
   });
