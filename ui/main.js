@@ -11,6 +11,7 @@ $('.btn-shorten').on('click', function(){
         var resultHTML = '<a class="result" href="' + short_url + '" target="_blank">'
             + data.shortUrl + '</a>'+'<button class="btn btn-primary" id="copy_btn">copy</button>';
         //$("#link").html(resultHTML);
+        $('#dialog_title_span').text(html);
         //$("#link").css({'display':'block'});
         $("#link").slideDown(500);
     }
