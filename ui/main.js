@@ -13,6 +13,7 @@ $('.btn-shorten').on('click', function(){
         //$("#link").html(resultHTML);
         //("#link").css({'display':'block'});
         $("#link").slideDown(500);
+        $("#dialog_title_span").html(resultHTML);
     }
   });
 
